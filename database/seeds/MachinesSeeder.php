@@ -30,8 +30,11 @@ class MachinesSeeder extends Seeder
 
         // Add some random machines.
         for ($i = 0; $i < $this->faker->numberBetween(2, 15); ++$i) {
+            $updatedAt = $this->faker->dateTimeThisYear();
             $machines[] = [
                 'name' => $this->faker->firstName().' '.$this->faker->lastName(),
+                'created_at' => $this->faker->dateTimeThisYear($updatedAt),
+                'updated_at' => $updatedAt,
             ];
         }
 

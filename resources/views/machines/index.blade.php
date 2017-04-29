@@ -19,11 +19,20 @@
                 <!-- /.box-header -->
                 <div class="box-body table-responsive no-padding">
                     <table class="table table-hover">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Created</th>
+                        </tr>
                         @foreach ($machines as $machine)
                             <tr>
                                 <td>{{ $machine['id'] }}</td>
                                 <td>
-                                {{ link_to_route('machine.show', $machine['name'], [$machine['id']]) }}
+                                    {{ link_to_route('machine.show', $machine['name'], [$machine['id']]) }}
+                                </td>
+                                <td>
+                                    {{ $machine->created_at->format('d-m-Y G:i:s') }}
+                                </td>
                             </tr>
                         @endforeach
                     </table>
