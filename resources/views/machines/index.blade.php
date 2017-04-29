@@ -7,14 +7,30 @@
 @stop
 
 @section('content')
-    <p>All machines.</p>
-    <table>
-        @foreach ($machines as $machine)
-            <tr>
-                <td>{{ $machine['id'] }}</td>
-                <td>
-                {{ link_to_route('machine.show', $machine['name'], [$machine['id']]) }}
-            </tr>
-        @endforeach
-    </table>
+    <div class="row">
+        <div class="col-xs-9">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Machines</h3>
+                    <div class="box-tools">
+                        {{ link_to_action('MachineController@create', 'Add new', [], ['class' => 'btn btn-primary btn-sm']) }}
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        @foreach ($machines as $machine)
+                            <tr>
+                                <td>{{ $machine['id'] }}</td>
+                                <td>
+                                {{ link_to_route('machine.show', $machine['name'], [$machine['id']]) }}
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
 @stop
