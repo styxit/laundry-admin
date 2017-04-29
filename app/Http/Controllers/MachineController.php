@@ -16,4 +16,21 @@ class MachineController extends Controller
             ]
         );
     }
+
+    /**
+     * Show the machine details for the given machine.
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function show($id)
+    {
+        return view(
+            'machines.show',
+            [
+                'machine' => Machine::findOrfail($id),
+            ]
+        );
+    }
 }

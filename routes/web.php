@@ -12,6 +12,7 @@
 */
 
 Route::get('machines', 'MachineController@index');
+Route::get('machines/{id}', 'MachineController@show');
 
 Route::get('/', function () {
     return view('welcome');
