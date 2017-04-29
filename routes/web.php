@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('machines', 'MachineController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
