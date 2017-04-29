@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('machines', 'MachineController@index');
-Route::get('machines/{id}', 'MachineController@show');
+Route::get('machines', 'MachineController@index')->name('machine.index');
+Route::get('machines/{id}', 'MachineController@show')->name('machine.show');
 
 Route::get('/', function () {
     return view('welcome');

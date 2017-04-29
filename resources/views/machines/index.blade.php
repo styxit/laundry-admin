@@ -13,7 +13,7 @@
             <tr>
                 <td>{{ $machine['id'] }}</td>
                 <td>
-                {{ link_to_action('MachineController@show', $machine['name'], [$machine['id']]) }}
+                {{ link_to_route('machine.show', $machine['name'], [$machine['id']]) }}
             </tr>
         @endforeach
     </table>
