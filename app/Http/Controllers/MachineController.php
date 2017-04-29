@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Machine;
+use Illuminate\Http\Request;
 
 class MachineController extends Controller
 {
@@ -32,5 +33,38 @@ class MachineController extends Controller
                 'machine' => Machine::findOrfail($id),
             ]
         );
+    }
+
+    /**
+     * Show the form to create a new machine.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        return view('machines.create');
+    }
+
+    /**
+     * Store a new machine.
+     *
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        // validate
+        $this->validate(
+            $request,
+            [
+                'name' => 'required',
+            ]
+        );
+
+        // Store machine in database.
+        $machine = new Machine;
+        $machine->name = $request->get('name');
+        $machine->save();
+
+        return redirect()->route('machine.show', [$machine->id]);
     }
 }

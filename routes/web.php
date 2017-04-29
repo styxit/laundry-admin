@@ -12,7 +12,9 @@
 */
 
 Route::get('machines', 'MachineController@index')->name('machine.index');
+Route::get('machines/create', 'MachineController@create')->name('machine.create');
 Route::get('machines/{id}', 'MachineController@show')->name('machine.show');
+Route::post('machines', 'MachineController@store')->name('machine.store');
 
 Route::get('/', function () {
     return view('welcome');
