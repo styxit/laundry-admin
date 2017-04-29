@@ -1,6 +1,6 @@
-vendor/
+/vendor/
 node_modules/
-.idea
+/.idea
 /public/hot
 /public/storage
 /storage/*.key
