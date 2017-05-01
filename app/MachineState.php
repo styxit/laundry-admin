@@ -32,4 +32,12 @@ class MachineState extends Model
     {
         return $this->belongsTo('App\Machine');
     }
+
+    /**
+     * Get the job for the state.
+     */
+    public function job()
+    {
+        return $this->belongsTo('App\MachineJob', 'machine_job_id');
+    }
 }
