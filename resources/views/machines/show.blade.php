@@ -45,7 +45,7 @@
                         @foreach ($machine->jobs as $job)
                             <tr>
                                 <td>{{ $job->created_at->format('d-m-Y G:i:s') }}</td>
-                                <td>{{ $job->duration }}</td>
+                                <td>{{ $job->duration->format('G\h i\m') }}</td>
                                 <td>{{ $job->completed }}</td>
                                 <td>{{ $job->id }}</td>
                             </tr>
