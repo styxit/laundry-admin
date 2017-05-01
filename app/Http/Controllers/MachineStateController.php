@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MachineStateCreated;
 use App\MachineState;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,8 @@ class MachineStateController extends Controller
         $state->seconds_remaining = $request->get('seconds_remaining');
         $state->machine()->associate($request->get('machine_id'));
         $state->save();
+
+        event(new MachineStateCreated($state));
 
         return $state->id;
     }
