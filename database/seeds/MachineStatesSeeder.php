@@ -30,9 +30,9 @@ class MachineStatesSeeder extends Seeder
         $states = [];
 
         // Get all machine job ids and machine_id.
-        $machineJob = MachineJob::pluck('id', 'machine_id');
+        $machineJobs = MachineJob::pluck('machine_id', 'id');
 
-        foreach ($machineJob as $jobId => $machineId) {
+        foreach ($machineJobs as $jobId => $machineId) {
             // Add some random states for a job.
             for ($i = 0; $i < $this->faker->numberBetween(20, 200); ++$i) {
                 $updatedAt = $this->faker->dateTimeThisYear();
