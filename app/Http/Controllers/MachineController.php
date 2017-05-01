@@ -63,6 +63,8 @@ class MachineController extends Controller
         // Store machine in database.
         $machine = new Machine;
         $machine->name = $request->get('name');
+        $machine->brand = $request->get('brand');
+        $machine->model = $request->get('model');
         $machine->save();
 
         return redirect()->route('machine.show', [$machine->id]);

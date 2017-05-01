@@ -18,6 +18,14 @@
             {{ Form::label('name', 'Name') }}
             {{ Form::text('name', null, array('class' => 'form-control')) }}
         </div>
+        <div class="form-group">
+            {{ Form::label('brand', 'Brand') }}
+            {{ Form::text('brand', null, array('class' => 'form-control')) }}
+        </div>
+        <div class="form-group">
+            {{ Form::label('model', 'Model') }}
+            {{ Form::text('model', null, array('class' => 'form-control')) }}
+        </div>
 
         {{ Form::submit('Create', array('class' => 'btn btn-primary')) }}
 

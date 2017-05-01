@@ -13,6 +13,8 @@ class Machine extends Model
      */
     protected $fillable = [
         'name',
+        'brand',
+        'model',
     ];
 
     /**

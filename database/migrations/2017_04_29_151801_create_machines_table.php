@@ -16,6 +16,8 @@ class CreateMachinesTable extends Migration
         Schema::create('machines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255);
+            $table->string('brand', 255);
+            $table->string('model', 255);
             $table->timestamps();
         });
     }

@@ -33,6 +33,8 @@ class MachinesSeeder extends Seeder
             $updatedAt = $this->faker->dateTimeThisYear();
             $machines[] = [
                 'name' => $this->faker->firstName().' '.$this->faker->lastName(),
+                'brand' => $this->faker->company(),
+                'model' => ucfirst($this->faker->domainWord()).'-'.$this->faker->randomNumber(2),
                 'created_at' => $this->faker->dateTimeThisYear($updatedAt),
                 'updated_at' => $updatedAt,
             ];
