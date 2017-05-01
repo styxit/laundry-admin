@@ -22,7 +22,7 @@ class MachineStateController extends Controller
             ]
         );
 
-        // Store machine in database.
+        // Store machine state in database.
         $state = new MachineState;
         $state->seconds_remaining = $request->get('seconds_remaining');
         $state->save();
