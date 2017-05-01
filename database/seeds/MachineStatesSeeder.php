@@ -1,6 +1,6 @@
 <?php
 
-use App\Machine;
+use App\MachineJob;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
@@ -29,15 +29,16 @@ class MachineStatesSeeder extends Seeder
         // Collect all states to insert.
         $states = [];
 
-        // Get all machine ids.
-        $machineIds = Machine::pluck('id');
+        // Get all machine job ids and machine_id.
+        $machineJob = MachineJob::pluck('id', 'machine_id');
 
-        foreach ($machineIds as $machineId) {
-            // Add some random states for a machine.
+        foreach ($machineJob as $jobId => $machineId) {
+            // Add some random states for a job.
             for ($i = 0; $i < $this->faker->numberBetween(20, 200); ++$i) {
                 $updatedAt = $this->faker->dateTimeThisYear();
                 $states[] = [
                     'machine_id' => $machineId,
+                    'machine_job_id' => $jobId,
                     'seconds_remaining' => $this->faker->numberBetween(0, 4000),
                     'created_at' => $this->faker->dateTimeThisYear($updatedAt),
                     'updated_at' => $updatedAt,
