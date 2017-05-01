@@ -19,12 +19,14 @@ class MachineStateController extends Controller
             $request,
             [
                 'seconds_remaining' => 'required',
+                'machine_id' => 'exists:machines,id',
             ]
         );
 
         // Store machine state in database.
         $state = new MachineState;
         $state->seconds_remaining = $request->get('seconds_remaining');
+        $state->machine()->associate($request->get('machine_id'));
         $state->save();
 
         return $state->id;
