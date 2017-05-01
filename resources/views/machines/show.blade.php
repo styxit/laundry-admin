@@ -27,6 +27,32 @@
             </div>
             <!-- /.box -->
         </div>
+        <div class="col-md-8">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <i class="fa fa-play-circle-o"></i>
+                    <h3 class="box-title">Jobs</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>Duration</th>
+                            <th>Completed</th>
+                        </tr>
+                        @foreach ($machine->jobs as $job)
+                            <tr>
+                                <td>{{ $job->id }}</td>
+                                <td>{{ $job->duration }}</td>
+                                <td>{{ $job->completed }}</td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-6">

@@ -30,7 +30,7 @@ class MachineController extends Controller
         return view(
             'machines.show',
             [
-                'machine' => Machine::with('states')->findOrfail($id),
+                'machine' => Machine::with('states', 'jobs')->findOrfail($id),
             ]
         );
     }
