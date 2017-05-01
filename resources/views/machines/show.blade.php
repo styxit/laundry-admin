@@ -27,10 +27,12 @@
             </div>
             <!-- /.box -->
         </div>
-        <div class="col-md-8">
+    </div>
+    <div class="row">
+        <div class="col-md-6">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <i class="fa fa-flash"></i>
+                    <i class="fa fa-bolt"></i>
                     <h3 class="box-title">States</h3>
                 </div>
                 <!-- /.box-header -->
