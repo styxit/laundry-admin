@@ -16,11 +16,13 @@ class CreateMachineStatesTable extends Migration
         Schema::create('machine_states', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('machine_id')->unsigned()->nullable();
+            $table->integer('machine_job_id')->unsigned()->nullable();
             $table->unsignedTinyInteger('seconds_remaining');
             $table->timestamps();
 
             // Foreign keys.
             $table->foreign('machine_id')->references('id')->on('machines');
+            $table->foreign('machine_job_id')->references('id')->on('machine_jobs');
         });
     }
 
