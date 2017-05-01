@@ -34,4 +34,12 @@ class Machine extends Model
     {
         return $this->hasMany('App\MachineState');
     }
+
+    /**
+     * Get the jobs for a machine.
+     */
+    public function jobs()
+    {
+        return $this->hasMany('App\MachineJob');
+    }
 }
