@@ -37,15 +37,17 @@
                 <div class="box-body">
                     <table class="table table-striped">
                         <tr>
-                            <th>ID</th>
+                            <th>Started</th>
                             <th>Duration</th>
                             <th>Completed</th>
+                            <th>ID</th>
                         </tr>
                         @foreach ($machine->jobs as $job)
                             <tr>
-                                <td>{{ $job->id }}</td>
+                                <td>{{ $job->created_at->format('d-m-Y G:i:s') }}</td>
                                 <td>{{ $job->duration }}</td>
                                 <td>{{ $job->completed }}</td>
+                                <td>{{ $job->id }}</td>
                             </tr>
                         @endforeach
                     </table>
