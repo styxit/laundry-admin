@@ -27,5 +27,26 @@
             </div>
             <!-- /.box -->
         </div>
+        <div class="col-md-8">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <i class="fa fa-flash"></i>
+                    <h3 class="box-title">States</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table class="table table-striped">
+                        @foreach ($machine->states as $state)
+                            <tr>
+                                <td>{{ $state->id }}</td>
+                                <td>{{ $state->seconds_remaining }}</td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
     </div>
 @stop

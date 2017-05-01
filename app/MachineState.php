@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Machine extends Model
+class MachineState extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,9 +12,7 @@ class Machine extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'brand',
-        'model',
+        'seconds_remaining',
     ];
 
     /**
@@ -28,10 +26,10 @@ class Machine extends Model
     ];
 
     /**
-     * Get the machine states for a machine.
+     * Get the machine that owns the state.
      */
-    public function states()
+    public function machine()
     {
-        return $this->hasMany('App\MachineState');
+        return $this->belongsTo('App\Machine');
     }
 }
