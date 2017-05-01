@@ -26,13 +26,12 @@ class MachineStatesSeeder extends Seeder
      */
     public function run()
     {
-        // Collect all states to insert.
-        $states = [];
-
         // Get all machine job ids and machine_id.
         $machineJobs = MachineJob::pluck('machine_id', 'id');
 
         foreach ($machineJobs as $jobId => $machineId) {
+            // Collect all states to insert.
+            $states = [];
             // Add some random states for a job.
             for ($i = 0; $i < $this->faker->numberBetween(20, 200); ++$i) {
                 $updatedAt = $this->faker->dateTimeThisYear();
@@ -44,9 +43,8 @@ class MachineStatesSeeder extends Seeder
                     'updated_at' => $updatedAt,
                 ];
             }
+            // Insert machine states into database.
+            \DB::table('machine_states')->insert($states);
         }
-
-        // Insert machine states into database.
-        \DB::table('machine_states')->insert($states);
     }
 }
