@@ -68,10 +68,16 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>Remaining</th>
+                            <th>Job</th>
+                        </tr>
                         @foreach ($machine->states as $state)
                             <tr>
                                 <td>{{ $state->id }}</td>
                                 <td>{{ $state->seconds_remaining->timestamp }}</td>
+                                <td>{{ $state->job->id}}</td>
                             </tr>
                         @endforeach
                     </table>
