@@ -16,6 +16,9 @@ Route::get('machines/create', 'MachineController@create')->name('machine.create'
 Route::get('machines/{id}', 'MachineController@show')->name('machine.show');
 Route::post('machines', 'MachineController@store')->name('machine.store');
 
+
+Route::get('machine_jobs/{id}', 'MachineJobController@show')->name('machine_job.show');
+
 Route::get('/', function () {
     return view('welcome');
 });
