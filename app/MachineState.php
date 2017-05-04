@@ -23,6 +23,7 @@ class MachineState extends Model
     protected $dates = [
         'created_at',
         'updated_at',
+        'seconds_remaining'
     ];
 
     /**

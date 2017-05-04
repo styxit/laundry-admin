@@ -39,6 +39,7 @@
                         <tr>
                             <th>Started</th>
                             <th>Duration</th>
+                            <th>Remaining</th>
                             <th>Completed</th>
                             <th>ID</th>
                         </tr>
@@ -46,6 +47,7 @@
                             <tr>
                                 <td>{{ $job->created_at->format('d-m-Y G:i:s') }}</td>
                                 <td>{{ $job->duration->format('G\h i\m') }}</td>
+                                <td>{{$job->states->first()->seconds_remaining->format('G\h i\m') }}</td>
                                 <td>{{ $job->completed }}</td>
                                 <td>{{ $job->id }}</td>
                             </tr>
@@ -69,7 +71,7 @@
                         @foreach ($machine->states as $state)
                             <tr>
                                 <td>{{ $state->id }}</td>
-                                <td>{{ $state->seconds_remaining }}</td>
+                                <td>{{ $state->seconds_remaining->timestamp }}</td>
                             </tr>
                         @endforeach
                     </table>
