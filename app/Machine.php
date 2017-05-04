@@ -32,7 +32,7 @@ class Machine extends Model
      */
     public function states()
     {
-        return $this->hasMany('App\MachineState');
+        return $this->hasMany('App\MachineState')->orderBy('created_at', 'DESC');
     }
 
     /**
@@ -40,6 +40,6 @@ class Machine extends Model
      */
     public function jobs()
     {
-        return $this->hasMany('App\MachineJob');
+        return $this->hasMany('App\MachineJob')->orderBy('created_at', 'DESC');
     }
 }

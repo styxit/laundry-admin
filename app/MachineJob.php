@@ -40,7 +40,7 @@ class MachineJob extends Model
      */
     public function states()
     {
-        return $this->hasMany('App\MachineState');
+        return $this->hasMany('App\MachineState')->orderBy('created_at', 'DESC');
     }
 
     /**
