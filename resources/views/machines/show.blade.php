@@ -45,7 +45,7 @@
                         </tr>
                         @foreach ($machine->jobs as $job)
                             <tr>
-                                <td>{{ $job->created_at->format('d-m-Y G:i:s') }}</td>
+                                <td>{{ link_to_route('machine_job.show', $job->created_at->format('d-m-Y G:i:s'), [$job->id]) }}</td>
                                 <td>{{ $job->duration->format('G\h i\m') }}</td>
                                 <td>{{$job->states->first()->seconds_remaining->format('G\h i\m') }}</td>
                                 <td>{{ $job->completed }}</td>
@@ -77,7 +77,7 @@
                             <tr>
                                 <td>{{ $state->id }}</td>
                                 <td>{{ $state->seconds_remaining->timestamp }}</td>
-                                <td>{{ $state->job->id}}</td>
+                                <td>{{ link_to_route('machine_job.show', $state->job->id, [$state->job->id]) }}</td>
                             </tr>
                         @endforeach
                     </table>
