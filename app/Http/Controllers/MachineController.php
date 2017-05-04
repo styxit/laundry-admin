@@ -27,10 +27,20 @@ class MachineController extends Controller
      */
     public function show($id)
     {
+        $machine = Machine::with([
+            'jobs' => function ($query) {
+                $query->limit(15);
+            },
+            'states'=> function ($query) {
+                $query->with('job');
+                $query->limit(20);
+            },
+        ])->findOrfail($id);
+
         return view(
             'machines.show',
             [
-                'machine' => Machine::with('states', 'jobs')->findOrfail($id),
+                'machine' => $machine,
             ]
         );
     }
