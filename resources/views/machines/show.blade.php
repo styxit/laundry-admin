@@ -48,7 +48,10 @@
                                 <td>{{ link_to_route('machine_job.show', $job->created_at->format('d-m-Y G:i:s'), [$job->id]) }}</td>
                                 <td>{{ $job->duration->format('G\h i\m') }}</td>
                                 <td>{{$job->states->first()->seconds_remaining->format('G\h i\m') }}</td>
-                                <td>{{ $job->completed }}</td>
+                                <td>
+                                    @component('components.machine_jobs.icon', ['job' => $job])
+                                    @endcomponent
+                                </td>
                                 <td>{{ $job->id }}</td>
                             </tr>
                         @endforeach
