@@ -22,3 +22,7 @@ Route::get('machine_jobs/{id}', 'MachineJobController@show')->name('machine_job.
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
