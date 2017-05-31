@@ -17,7 +17,7 @@ return [
 
     'title_prefix' => '',
 
-    'title_postfix' => '',
+    'title_postfix' => ' - Laundry admin',
 
     /*
     |--------------------------------------------------------------------------
