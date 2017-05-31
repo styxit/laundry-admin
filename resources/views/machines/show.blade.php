@@ -40,7 +40,7 @@
                             <th>Started</th>
                             <th>Duration</th>
                             <th>Remaining</th>
-                            <th>Completed</th>
+                            <th>State</th>
                             <th>ID</th>
                         </tr>
                         @foreach ($machine->jobs as $job)
@@ -49,8 +49,7 @@
                                 <td>{{ $job->duration->format('G\h i\m') }}</td>
                                 <td>{{$job->states->first()->seconds_remaining->format('G\h i\m') }}</td>
                                 <td>
-                                    @component('components.machine_jobs.icon', ['job' => $job])
-                                    @endcomponent
+                                    @component('components.machine_jobs.icon', ['job' => $job, 'showText' => true])@endcomponent
                                 </td>
                                 <td>{{ $job->id }}</td>
                             </tr>
