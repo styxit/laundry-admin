@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Machines')
+@section('title', $machine->name)
 
 @section('content_header')
-    <h1>Machine details <small>{{ $machine->name }}</small></h1>
+    <h1>{{ $machine->name }} <small>Machine details </small></h1>
 @stop
 
 @section('content')
