@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-xs-9">
+        <div class="col-xs-12 col-md-9">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title">Machines</h3>
