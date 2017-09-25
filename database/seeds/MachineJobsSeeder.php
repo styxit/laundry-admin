@@ -26,13 +26,13 @@ class MachineJobsSeeder extends Seeder
      */
     public function run()
     {
-        // Collect all states to insert.
-        $jobs = [];
-
         // Get all machine ids.
         $machineIds = Machine::pluck('id');
 
         foreach ($machineIds as $machineId) {
+            // Collect jobs for this machine.
+            $jobs = [];
+
             // Add some jobs for a machine.
             for ($i = 0; $i < $this->faker->numberBetween(10, 30); ++$i) {
                 $updatedAt = $this->faker->dateTimeThisYear();
@@ -44,9 +44,9 @@ class MachineJobsSeeder extends Seeder
                     'updated_at' => $updatedAt,
                 ];
             }
-        }
 
-        // Insert machine jobs into database.
-        \DB::table('machine_jobs')->insert($jobs);
+            // Insert machine jobs into database.
+            \DB::table('machine_jobs')->insert($jobs);
+        }
     }
 }
