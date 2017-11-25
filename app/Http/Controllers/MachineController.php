@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Machine;
 use Illuminate\Http\Request;
+use Auth;
 
 class MachineController extends Controller
 {
@@ -13,7 +14,7 @@ class MachineController extends Controller
         return view(
             'machines.index',
             [
-                'machines' => Machine::all(),
+                'machines' => Auth::user()->machines,
             ]
         );
     }
