@@ -28,6 +28,14 @@ class Machine extends Model
     ];
 
     /**
+     * Relation to the User that owns the machine.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    /**
      * Get the machine states for a machine.
      */
     public function states()

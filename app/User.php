@@ -26,4 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relation to the Machines owned by this User.
+     */
+    public function machines()
+    {
+        return $this->hasMany('App\Machine');
+    }
 }
