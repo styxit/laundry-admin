@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
@@ -25,11 +26,14 @@ class MachinesSeeder extends Seeder
      */
     public function run()
     {
+        // Get all user ids to select a random user for the machine.
+        $users = User::pluck('id');
+
         // Collect machine records that will be inserted.
         $machines = [];
 
         // Add some random machines.
-        for ($i = 0; $i < $this->faker->numberBetween(2, 15); ++$i) {
+        for ($i = 0; $i < $this->faker->numberBetween(15, 30); ++$i) {
             $updatedAt = $this->faker->dateTimeThisYear();
             $machines[] = [
                 'name' => $this->faker->firstName().' '.$this->faker->lastName(),
@@ -37,6 +41,8 @@ class MachinesSeeder extends Seeder
                 'model' => ucfirst($this->faker->domainWord()).'-'.$this->faker->randomNumber(2),
                 'created_at' => $this->faker->dateTimeThisYear($updatedAt),
                 'updated_at' => $updatedAt,
+                // Link to a random user.
+                'user_id' => $users->random(),
             ];
         }
 
