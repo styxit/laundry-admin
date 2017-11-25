@@ -17,7 +17,7 @@ class CreateMachineStatesTable extends Migration
             $table->increments('id');
             $table->integer('machine_id')->unsigned()->nullable();
             $table->integer('machine_job_id')->unsigned()->nullable();
-            $table->unsignedTinyInteger('seconds_remaining');
+            $table->unsignedSmallInteger('seconds_remaining');
             $table->timestamps();
 
             // Foreign keys.

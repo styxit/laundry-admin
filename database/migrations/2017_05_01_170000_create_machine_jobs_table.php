@@ -16,7 +16,7 @@ class CreateMachineJobsTable extends Migration
         Schema::create('machine_jobs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('machine_id')->unsigned();
-            $table->unsignedTinyInteger('duration');
+            $table->unsignedSmallInteger('duration');
             $table->boolean('completed')->default(false);
             $table->timestamps();
 
