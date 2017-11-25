@@ -18,6 +18,11 @@ class CreateMachinesTable extends Migration
             $table->string('name', 255);
             $table->string('brand', 255);
             $table->string('model', 255);
+
+            // Link to User.
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
