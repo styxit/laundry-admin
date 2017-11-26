@@ -110,11 +110,6 @@ return [
     'menu' => [
         'NAVIGATION',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
             'text'        => 'Machines',
             'route'       => 'machines.index',
             'icon'        => 'cubes',
