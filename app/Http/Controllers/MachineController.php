@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class MachineController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:view,machine', ['except' => ['index', 'create', 'store']]);
+    }
+
     /**
      * Display a listing of machines for a user.
      *
