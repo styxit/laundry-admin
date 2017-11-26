@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Machine;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class MachineController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+    /**
+     * Display a listing of machines for a user.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         return view(
@@ -25,36 +24,9 @@ class MachineController extends Controller
     }
 
     /**
-     * Show the machine details for the given machine.
+     * Show the form for creating a new machine.
      *
-     * @param  int $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        $machine = Machine::with([
-            'jobs' => function ($query) {
-                $query->limit(15);
-            },
-            'states'=> function ($query) {
-                $query->with('job');
-                $query->limit(20);
-            },
-        ])->findOrfail($id);
-
-        return view(
-            'machines.show',
-            [
-                'machine' => $machine,
-            ]
-        );
-    }
-
-    /**
-     * Show the form to create a new machine.
-     *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -62,13 +34,14 @@ class MachineController extends Controller
     }
 
     /**
-     * Store a new machine.
+     * Store a newly created machine.
      *
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        // validate
+        // Validate.
         $this->validate(
             $request,
             [
@@ -77,12 +50,39 @@ class MachineController extends Controller
         );
 
         // Store machine in database.
-        $machine = new Machine;
+        $machine = new Machine();
         $machine->name = $request->get('name');
         $machine->brand = $request->get('brand');
         $machine->model = $request->get('model');
+        $machine->user_id = Auth::id();
         $machine->save();
 
-        return redirect()->route('machine.show', [$machine->id]);
+        return redirect()->route('machines.show', [$machine->id]);
+    }
+
+    /**
+     * Show the machine details for the given machine.
+     *
+     * @param  \App\Machine  $machine
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Machine $machine)
+    {
+        $machine->load([
+            'jobs' => function ($query) {
+                $query->limit(15);
+            },
+            'states'=> function ($query) {
+                $query->with('job');
+                $query->limit(20);
+            },
+        ]);
+
+        return view(
+            'machines.show',
+            [
+                'machine' => $machine,
+            ]
+        );
     }
 }

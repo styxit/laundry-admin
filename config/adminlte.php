@@ -116,7 +116,7 @@ return [
         ],
         [
             'text'        => 'Machines',
-            'route'       => 'machine.index',
+            'route'       => 'machines.index',
             'icon'        => 'cubes',
         ],
         'ACCOUNT SETTINGS',

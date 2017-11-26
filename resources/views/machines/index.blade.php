@@ -28,7 +28,7 @@
                             <tr>
                                 <td>{{ $machine->id }}</td>
                                 <td>
-                                    {{ link_to_route('machine.show', $machine->name, [$machine->id]) }}
+                                    {{ link_to_route('machines.show', $machine->name, [$machine->id]) }}
                                 </td>
                                 <td>
                                     {{ $machine->created_at->format('d-m-Y G:i:s') }}
