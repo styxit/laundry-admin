@@ -49,7 +49,7 @@
                                 <td>{{ $job->duration->format('G\h i\m') }}</td>
                                 <td>{{$job->states->first()->seconds_remaining->format('G\h i\m') }}</td>
                                 <td>
-                                    @component('components.machine_jobs.icon', ['job' => $job, 'showText' => true])@endcomponent
+                                    @include('components.machine_jobs.icon', ['job' => $job, 'showText' => true])
                                 </td>
                                 <td>{{ $job->id }}</td>
                             </tr>

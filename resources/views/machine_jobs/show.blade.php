@@ -38,8 +38,7 @@
 
                     <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            @component('components.machine_jobs.status', ['job' => $job])
-                            @endcomponent
+                            @include('components.machine_jobs.status', ['job' => $job])
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="info-box">

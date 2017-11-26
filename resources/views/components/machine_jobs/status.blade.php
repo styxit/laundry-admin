@@ -4,11 +4,7 @@
 <div class="info-box bg-aqua">
 @endif
     <span class="info-box-icon">
-        @if ($job->completed)
-        <i class="fa fa-check-circle-o"></i>
-        @else
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-        @endif
+        @include('components.machine_jobs.icon', ['job' => $job, 'showText' => false])
     </span>
     <div class="info-box-content">
         <span class="info-box-text">Time remaining</span>
