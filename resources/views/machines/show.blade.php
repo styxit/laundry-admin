@@ -26,6 +26,21 @@
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <i class="fa fa-play-circle-o"></i>
+                    <h3 class="box-title">Latest job</h3>
+                    <div class="box-tools">
+                        {{ link_to_route('machine_job.show', 'Details', [$machine->jobs->first()->id], ['class' => 'btn btn-primary btn-sm']) }}
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    @include('components.machine_jobs.status', ['job' => $machine->jobs->first()])
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
         </div>
         <div class="col-md-8">
             <div class="box box-warning">
