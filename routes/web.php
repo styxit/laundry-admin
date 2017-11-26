@@ -12,6 +12,8 @@
 */
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('machines', 'MachineController');
+
+    Route::get('/profile', 'HomeController@profile')->name('profile');
 });
 
 Route::get('machine_jobs/{id}', 'MachineJobController@show')->name('machine_job.show');

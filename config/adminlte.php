@@ -117,7 +117,7 @@ return [
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'url'  => 'profile',
             'icon' => 'user',
         ],
         [
