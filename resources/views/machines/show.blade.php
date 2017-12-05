@@ -37,6 +37,7 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     @include('components.machine_jobs.status', ['job' => $machine->jobs->first()])
+                    @include('components.machine_jobs.timer', ['job' => $machine->jobs->first()])
                 </div>
                 <!-- /.box-body -->
             </div>
