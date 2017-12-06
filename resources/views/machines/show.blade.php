@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.page')
 
 @section('title', $machine->name)
 
