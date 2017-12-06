@@ -1,4 +1,4 @@
-<div class="info-box">
+<div class="info-box machine-job-timer">
     <span class="info-box-icon bg-blue"><i class="fa fa-clock-o"></i></span>
     <div class="info-box-content">
         <span class="info-box-text">Started</span>
