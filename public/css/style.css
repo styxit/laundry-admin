@@ -1,8 +1,49 @@
+/* MOBILE VIEW LAYOUT */
+@media (max-width: 767px) {
+    /*
+     * Top header.
+     * Theme defaults to back header with white text.
+     * Make it a white header with black text.
+     */
+    .skin-black-light .main-header > .logo {
+        background-color: #ffffff;
+        color: #333333;
+    }
+    .skin-black-light .main-header > .logo:hover {
+        background-color: #fcfcfc;
+    }
+
+    /*
+     * Navbar open/close button and top menu items.
+     * Hide borders.
+     */
+    .skin-black-light .main-header .navbar .navbar-custom-menu .navbar-nav>li>a,
+    .skin-black-light .main-header .navbar .navbar-right>li>a,
+    .skin-black-light .main-header .navbar .navbar-nav>li>a,
+    .skin-black-light .main-header .navbar>.sidebar-toggle {
+        border-color: #ffffff;
+    }
+
+    /*
+     * Change background on hover.
+     */
+    .skin-black-light .main-header .navbar .sidebar-toggle:hover,
+    .skin-black-light .main-header .navbar .nav>li>a:hover,
+    .skin-black-light .main-header .navbar .nav>li>a:active,
+    .skin-black-light .main-header .navbar .nav>li>a:focus,
+    .skin-black-light .main-header .navbar .nav .open>a,
+    .skin-black-light .main-header .navbar .nav .open>a:hover,
+    .skin-black-light .main-header .navbar .nav .open>a:focus,
+    .skin-black-light .main-header .navbar .nav>.active>a {
+        background: #d2d6de;
+        color: inherit;
+    }
+}
+
 /**
  * Machine job timer component.
  */
-.machine-job-timer .info-box-content
-{
+.machine-job-timer .info-box-content {
     padding-bottom: 0px;
     padding-top: 0px;
 }
