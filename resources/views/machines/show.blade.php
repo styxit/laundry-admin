@@ -67,8 +67,8 @@
                             @foreach ($machine->jobs as $job)
                                 <tr>
                                     <td>{{ link_to_route('machine_job.show', $job->created_at->format('d-m-Y G:i:s'), [$job->id]) }}</td>
-                                    <td>{{ $job->duration->format('G\h i\m') }}</td>
-                                    <td>{{$job->states->first()->seconds_remaining->format('G\h i\m') }}</td>
+                                    <td>@duration($job->duration)</td>
+                                    <td>@duration($job->states->first()->seconds_remaining)</td>
                                     <td>
                                         @include('components.machine_jobs.icon', ['job' => $job, 'showText' => true])
                                     </td>
@@ -106,7 +106,7 @@
                             @foreach ($machine->states as $state)
                                 <tr>
                                     <td>{{ $state->id }}</td>
-                                    <td>{{ $state->seconds_remaining->timestamp }}</td>
+                                    <td>{{ $state->seconds_remaining }}</td>
                                     <td>{{ link_to_route('machine_job.show', $state->job->id, [$state->job->id]) }}</td>
                                 </tr>
                             @endforeach

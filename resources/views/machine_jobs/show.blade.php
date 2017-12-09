@@ -64,7 +64,7 @@
                         @foreach ($job->states as $state)
                             <tr>
                                 <td>{{ $state->id }}</td>
-                                <td>{{ $state->seconds_remaining->timestamp }}</td>
+                                <td>{{ $state->seconds_remaining }}</td>
                             </tr>
                         @endforeach
                     </table>

@@ -8,8 +8,8 @@
         </span>
         <span class="info-box-text">Estimated finish time</span>
         <span class="info-box-number">
-            {{ $job->created_at->addSeconds($job->duration->timestamp)->format('G:i') }}
-            <span class="small">{{ $job->created_at->addSeconds($job->duration->timestamp)->format('d-m-Y') }}</span>
+            {{ $job->created_at->addSeconds($job->duration)->format('G:i') }}
+            <span class="small">{{ $job->created_at->addSeconds($job->duration)->format('d-m-Y') }}</span>
         </span>
     </div>
     <!-- /.info-box-content -->

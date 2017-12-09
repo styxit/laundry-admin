@@ -10,15 +10,15 @@
         <span class="info-box-text">Time remaining</span>
         <span class="info-box-number">
             @if ($job->completed)
-            Completed
+                Completed
             @else
-            {{ $job->states->first()->seconds_remaining->format('G\h i\m') }}
+                @duration($job->states->first()->seconds_remaining)
             @endif
         </span>
         <div class="progress">
-            <div class="progress-bar" style="width: {{round((100/$job->duration->timestamp)*$job->states->first()->seconds_remaining->timestamp)}}%"></div>
+            <div class="progress-bar" style="width: {{round((100/$job->duration)*$job->states->first()->seconds_remaining) }}%"></div>
         </div>
-        <span class="progress-description">Duration: {{ $job->duration->format('G\h i\m') }}</span>
+        <span class="progress-description">Duration: @duration($job->duration)</span>
     </div>
     <!-- /.info-box-content -->
 </div>
