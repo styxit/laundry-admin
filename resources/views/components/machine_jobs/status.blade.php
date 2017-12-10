@@ -16,7 +16,11 @@
             @endif
         </span>
         <div class="progress">
-            <div class="progress-bar" style="width: {{ 100 - round((100/$job->duration)*$job->states->first()->seconds_remaining) }}%"></div>
+            @if ($job->completed)
+                <div class="progress-bar" style="width: 100%"></div>
+            @else
+                <div class="progress-bar" style="width: {{ 100 - round((100/$job->duration)*$job->states->first()->seconds_remaining) }}%"></div>
+            @endif
         </div>
         <span class="progress-description">Duration: @duration($job->duration)</span>
     </div>
