@@ -111,7 +111,11 @@
                                     <td>{{ $state->seconds_remaining }}</td>
                                     <td>@duration($state->seconds_remaining)</td>
                                     <td>{{ $state->created_at->format('d-m-Y G:i:s') }}</td>
-                                    <td>{{ link_to_route('machine_job.show', $state->job->id, [$state->job->id]) }}</td>
+                                    <td>
+                                        @if($state->job)
+                                            {{ link_to_route('machine_job.show', $state->job->id, [$state->job->id]) }}
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>
