@@ -4,12 +4,12 @@
         <span class="info-box-text">Started</span>
         <span class="info-box-number">
             {{ $job->created_at->format('G:i') }}
-            <span class="small">{{ $job->created_at->format('d-m-Y') }}</span>
+            <span class="small hidden-md hidden-sm">{{ $job->created_at->format('d-m-Y') }}</span>
         </span>
         <span class="info-box-text">Estimated finish time</span>
         <span class="info-box-number">
             {{ $job->created_at->addSeconds($job->duration)->format('G:i') }}
-            <span class="small">{{ $job->created_at->addSeconds($job->duration)->format('d-m-Y') }}</span>
+            <span class="small hidden-md hidden-sm">{{ $job->created_at->addSeconds($job->duration)->format('d-m-Y') }}</span>
         </span>
     </div>
     <!-- /.info-box-content -->
