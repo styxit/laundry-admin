@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\MachineStateCreated;
+use App\MachineJob;
 use App\MachineState;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class MachineStateController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, MachineJob $machineJob)
     {
         // validate
         $this->validate(
@@ -23,6 +24,10 @@ class MachineStateController extends Controller
                 'machine_id' => 'exists:machines,id',
             ]
         );
+        // If the remaining time is 0 and there is no active job; ignore this state.
+        if ($request->get('seconds_remaining') == 0 && $machineJob->where('machine_id', $request->get('machine_id'))->isActive()->get()->isEmpty()) {
+            return;
+        }
 
         // Store machine state in database.
         $state = new MachineState;
