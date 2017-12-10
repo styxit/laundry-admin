@@ -100,13 +100,17 @@
                         <table class="table table-striped">
                             <tr>
                                 <th>ID</th>
-                                <th>Remaining</th>
+                                <th>Remaining seconds</th>
+                                <th>Remaining time</th>
+                                <th>Created</th>
                                 <th>Job</th>
                             </tr>
                             @foreach ($machine->states as $state)
                                 <tr>
                                     <td>{{ $state->id }}</td>
                                     <td>{{ $state->seconds_remaining }}</td>
+                                    <td>@duration($state->seconds_remaining)</td>
+                                    <td>{{ $state->created_at->format('d-m-Y G:i:s') }}</td>
                                     <td>{{ link_to_route('machine_job.show', $state->job->id, [$state->job->id]) }}</td>
                                 </tr>
                             @endforeach

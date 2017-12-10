@@ -61,10 +61,18 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <table class="table table-striped">
+                        <tr>
+                            <th>State ID</th>
+                            <th>Remaining Seconds</th>
+                            <th>Remaining time</th>
+                            <th>Created</th>
+                        </tr>
                         @foreach ($job->states as $state)
                             <tr>
                                 <td>{{ $state->id }}</td>
                                 <td>{{ $state->seconds_remaining }}</td>
+                                <td>@duration($state->seconds_remaining)</td>
+                                <td>{{ $state->created_at->format('d-m-Y G:i:s') }}</td>
                             </tr>
                         @endforeach
                     </table>
