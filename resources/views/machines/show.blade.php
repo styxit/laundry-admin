@@ -62,7 +62,6 @@
                                 <th>Duration</th>
                                 <th>Remaining</th>
                                 <th>State</th>
-                                <th>ID</th>
                             </tr>
                             @foreach ($machine->jobs as $job)
                                 <tr>
@@ -72,7 +71,6 @@
                                     <td>
                                         @include('components.machine_jobs.icon', ['job' => $job, 'showText' => true])
                                     </td>
-                                    <td>{{ $job->id }}</td>
                                 </tr>
                             @endforeach
                         </table>
@@ -99,7 +97,6 @@
                     @else
                         <table class="table table-striped">
                             <tr>
-                                <th>ID</th>
                                 <th>Remaining seconds</th>
                                 <th>Remaining time</th>
                                 <th>Created</th>
@@ -107,7 +104,6 @@
                             </tr>
                             @foreach ($machine->states as $state)
                                 <tr>
-                                    <td>{{ $state->id }}</td>
                                     <td>{{ $state->seconds_remaining }}</td>
                                     <td>@duration($state->seconds_remaining)</td>
                                     <td>{{ $state->created_at->format('d-m-Y G:i:s') }}</td>
