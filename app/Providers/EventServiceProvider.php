@@ -19,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\MachineStateCreated' => [
             'App\Listeners\LinkStateToJob',
         ],
+        'App\Events\MachineJobNewState' => [
+            'App\Listeners\UpdateJob',
+        ],
     ];
 
     /**

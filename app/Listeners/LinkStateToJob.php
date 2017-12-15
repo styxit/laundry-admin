@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\MachineJobNewState;
 use App\Events\MachineStateCreated;
 use App\MachineJob;
 
@@ -37,5 +38,8 @@ class LinkStateToJob
         // Link the state to the job.
         $event->state->job()->associate($job);
         $event->state->save();
+
+        // A state has been attached to a job, trigger event.
+        event(new MachineJobNewState($job));
     }
 }
