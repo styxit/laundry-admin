@@ -7,39 +7,57 @@
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-xs-12 col-sm-9">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Machines</h3>
-                    <div class="box-tools">
-                        {{ link_to_action('MachineController@create', 'Add new', [], ['class' => 'btn btn-primary btn-sm']) }}
+    @foreach ($machines as $machine)
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <i class="fa fa-cube"></i>
+                        <h3 class="box-title">{{ $machine->name }}</h3>
+                        <div class="box-tools">
+                            {{ link_to_route('machines.show', 'Details', [$machine->id], ['class' => 'btn btn-primary btn-sm']) }}
+                        </div>
                     </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <dl>
+                            <dt>Brand</dt>
+                            <dd>{{ $machine->brand }}</dd>
+                            <dt>Model</dt>
+                            <dd>{{ $machine->model }}</dd>
+                        </dl>
+                    </div>
+                    <!-- /.box-body -->
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Created</th>
-                        </tr>
-                        @foreach ($machines as $machine)
-                            <tr>
-                                <td>{{ $machine->id }}</td>
-                                <td>
-                                    {{ link_to_route('machines.show', $machine->name, [$machine->id]) }}
-                                </td>
-                                <td>
-                                    {{ $machine->created_at->format('d-m-Y G:i:s') }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                </div>
-                <!-- /.box-body -->
+                <!-- /.box -->
             </div>
-            <!-- /.box -->
+            <div class="col-sm-8">
+                @if (!$machine->jobs->isEmpty())
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <i class="fa fa-play-circle-o"></i>
+                            <h3 class="box-title">Latest job <small>Job # {{ $machine->jobs->first()->id }}</small></h3>
+                            <div class="box-tools">
+                                {{ link_to_route('machine_job.show', 'Details', [$machine->jobs->first()->id], ['class' => 'btn btn-primary btn-sm']) }}
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    @include('components.machine_jobs.status', ['job' => $machine->jobs->first()])
+                                </div>
+                                <div class="col-sm-6">
+                                    @include('components.machine_jobs.timer', ['job' => $machine->jobs->first()])
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                @endif
+                <!-- /.box -->
+            </div>
         </div>
-    </div>
+    @endforeach
 @stop
