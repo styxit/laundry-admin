@@ -11,6 +11,7 @@
 |
 */
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'MachineController@index');
     Route::resource('machines', 'MachineController');
 
     Route::get('/profile', 'HomeController@profile')->name('profile');
@@ -18,10 +19,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('machine_jobs/{id}', 'MachineJobController@show')->name('machine_job.show');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
