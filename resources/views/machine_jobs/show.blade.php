@@ -3,7 +3,7 @@
 @section('title', 'Job details')
 
 @section('content_header')
-    <h1>Job details <small>{{ $job->machine->name }}</small></h1>
+    <h1>Job #{{ $job->id }} <small>Created {{ $job->created_at->format('G:i d-m-Y') }}</small></h1>
 @stop
 
 @section('content')
@@ -62,17 +62,20 @@
                 <div class="box-body">
                     <table class="table table-striped">
                         <tr>
-                            <th>State ID</th>
                             <th>Remaining Seconds</th>
                             <th>Remaining time</th>
                             <th>Created</th>
                         </tr>
                         @foreach ($job->states as $state)
                             <tr>
-                                <td>{{ $state->id }}</td>
                                 <td>{{ $state->seconds_remaining }}</td>
                                 <td>@duration($state->seconds_remaining)</td>
-                                <td>{{ $state->created_at->format('d-m-Y G:i:s') }}</td>
+                                <td>
+                                    {{ $state->created_at->format('H:i:s') }}
+                                    <small>
+                                        {{ $state->created_at->format('d-m-Y') }}
+                                    </small>
+                                </td>
                             </tr>
                         @endforeach
                     </table>
