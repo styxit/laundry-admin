@@ -93,7 +93,7 @@ return [
 
     'login_url' => 'login',
 
-    'register_url' => 'register',
+    'register_url' => (env('REGISTRATION_ENABLED', true)) ? 'register' : false,
 
     /*
     |--------------------------------------------------------------------------
