@@ -3,7 +3,9 @@
 @section('title', 'Machines')
 
 @section('content_header')
-    <h1>Machines</h1>
+    <h1>Machines
+        {{ link_to_action('MachineController@create', 'Add new machine', [], ['class' => 'btn btn-primary btn-sm pull-right']) }}
+    </h1>
 @stop
 
 @section('content')
