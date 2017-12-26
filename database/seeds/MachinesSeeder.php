@@ -3,6 +3,7 @@
 use App\User;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class MachinesSeeder extends Seeder
 {
@@ -39,6 +40,7 @@ class MachinesSeeder extends Seeder
                 'name' => $this->faker->firstName().' '.$this->faker->lastName(),
                 'brand' => $this->faker->company(),
                 'model' => ucfirst($this->faker->domainWord()).'-'.$this->faker->randomNumber(2),
+                'token' => Str::random(32),
                 'created_at' => $this->faker->dateTimeThisYear($updatedAt),
                 'updated_at' => $updatedAt,
                 // Link to a random user.

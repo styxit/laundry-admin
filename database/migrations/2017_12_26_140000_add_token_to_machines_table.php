@@ -14,7 +14,7 @@ class AddTokenToMachinesTable extends Migration
     public function up()
     {
         Schema::table('machines', function (Blueprint $table) {
-            $table->string('token')->after('model');
+            $table->string('token', 32)->after('model');
         });
     }
 

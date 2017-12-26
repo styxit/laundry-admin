@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Machine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class MachineController extends Controller
 {
@@ -59,6 +60,7 @@ class MachineController extends Controller
         $machine->name = $request->get('name');
         $machine->brand = $request->get('brand');
         $machine->model = $request->get('model');
+        $machine->token = Str::random(32);
         $machine->user_id = Auth::id();
         $machine->save();
 
