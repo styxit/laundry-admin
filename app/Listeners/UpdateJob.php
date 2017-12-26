@@ -36,11 +36,8 @@ class UpdateJob
             }
         ])->isActive()->find($event->machineJob->id);
 
-        dump($job);
-
         // If there is no active job, create a new one.
         if ($job && $job->isActive() && $job->states()->first()->seconds_remaining === 0) {
-            dump('job is active and timer is 0');
             $job->completed = 1;
             $job->save();
         }
