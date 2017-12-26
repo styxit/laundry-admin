@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('machine_states', 'MachineStateController@store')->name('machine_state.store');
+Route::post('machines/{machineId}/machine_states', 'MachineStateController@store');
