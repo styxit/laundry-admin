@@ -21,6 +21,8 @@
                         <dd>{{ $machine->brand }}</dd>
                         <dt>Model</dt>
                         <dd>{{ $machine->model }}</dd>
+                        <dt>Integration token</dt>
+                        <dd>{{ $machine->token }}</dd>
                     </dl>
                 </div>
                 <!-- /.box-body -->
