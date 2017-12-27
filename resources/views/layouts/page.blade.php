@@ -1,5 +1,5 @@
 @extends('adminlte::page')
 
-@push('js')
+@push('css')
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 @endpush
