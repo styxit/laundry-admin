@@ -1,15 +1,27 @@
-/* Login and registration page */
-body.login-page, body.register-page {
+/* MAIN LAYOUT */
+body {
     height:auto;
-    background: url(/img/splash.jpg) no-repeat center center fixed;
+    background: url(/img/splash.jpg) no-repeat center center fixed !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
+.skin-black-light .wrapper, .skin-black-light .main-sidebar, .skin-black-light .left-side{
+    /* Add opacity to background to make the background image visible. */
+    background-color: rgba(249, 250, 252, 0.7);
+}
+
+body .content-wrapper {
+    /* Disable main content background color. */
+    background: none;
+}
+
+/* LOGIN AND REGISTRATION LAYOUT */
 body.login-page .login-logo a, body.register-page .register-logo a {
     color: #e4e4e4;
+    text-shadow: 2px 2px #333333;
 }
 
 body.login-page .login-box-body, body.register-page .register-box-body {
@@ -23,7 +35,7 @@ body.login-page .login-box-body, body.register-page .register-box-body {
 @media (max-width: 767px) {
     /*
      * Top header.
-     * Theme defaults to back header with white text.
+     * Theme defaults to black header with white text.
      * Make it a white header with black text.
      */
     .skin-black-light .main-header > .logo {
