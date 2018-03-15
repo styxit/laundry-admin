@@ -1,4 +1,4 @@
-# Laundy admin
+# Laundry admin
 
 Monitor your laundry.
 
