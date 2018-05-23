@@ -116,8 +116,8 @@ return [
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'profile',
+            'text' => 'User settings',
+            'route'  => 'user.view',
             'icon' => 'user',
         ],
     ],
