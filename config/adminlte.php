@@ -155,5 +155,7 @@ return [
 
     'plugins' => [
         'datatables' => true,
+        'select2'    => false,
+        'chartjs'    => false,
     ],
 ];
