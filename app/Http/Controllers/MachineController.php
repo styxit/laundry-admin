@@ -52,6 +52,7 @@ class MachineController extends Controller
             $request,
             [
                 'name' => 'required',
+                'brand' => 'required',
             ]
         );
 
