@@ -31,7 +31,11 @@ class UserController extends Controller
         $user->pushover_app_key= $request->get('pushover_app_key');
         $user->pushover_user_key= $request->get('pushover_user_key');
 
-        $user->save();
+        if ($user->save()) {
+            flash('Settings saved.')->success();
+        } else {
+            flash('Failed to save settings.')->error();
+        }
 
         return redirect()->route('user.view');
     }
