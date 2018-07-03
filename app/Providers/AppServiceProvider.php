@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Let the paginator render bootstrap 3 compatible links.
+        Paginator::useBootstrapThree();
+
         // Format seconds to readable time format.
         Blade::directive('duration', function ($expression) {
             return "<?php
