@@ -58,9 +58,9 @@ class CreateUser extends Command
         ]);
 
         if($user->save()) {
-            $this->output(sprintf('User %s has been created.', $name));
+            $this->info(sprintf('User %s has been created.', $name));
         } else {
-            $this->output(sprintf('User %s has cloud not be created.', $name));
+            $this->error(sprintf('User %s cloud not be created.', $name));
         }
     }
 }
