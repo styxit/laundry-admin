@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notification;
 
 class User extends Authenticatable
 {
@@ -26,6 +27,28 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @param Notification $notification The Notification.
+     *
+     * @return string
+     */
+    public function routeNotificationForMail($notification)
+    {
+        return $this->email;
+    }
+
+    /**
+     * Route notifications for the Pushover channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForPushover()
+    {
+        return $this->pushover_user_key;
+    }
 
     /**
      * Relation to the Machines owned by this User.
