@@ -35,4 +35,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'pushover' => [
+        'token' => env('PUSHOVER_APP_TOKEN'),
+    ],
+
 ];

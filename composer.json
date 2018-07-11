@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.0",
         "jeroennoten/laravel-adminlte": "^1.20",
         "laracasts/flash": "^3.0",
+        "laravel-notification-channels/pushover": "^1.2",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5"
