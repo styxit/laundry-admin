@@ -21,7 +21,11 @@ class MachineStateController extends Controller
         $this->validate(
             $request,
             [
-                'seconds_remaining' => 'required',
+                'seconds_remaining' => [
+                    'required',
+                    'int',
+                    'max:65535',
+                ],
             ]
         );
         // If the remaining time is 0 and there is no active job; ignore this state.
