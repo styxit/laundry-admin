@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\MachineJobNewState;
 use App\Events\MachineStateCreated;
 use App\MachineJob;
+use App\Notifications\JobFinished;
 
 /**
  * Class UpdateJob
@@ -36,10 +37,15 @@ class UpdateJob
             }
         ])->isActive()->find($event->machineJob->id);
 
-        // If there is no active job, create a new one.
-        if ($job && $job->isActive() && $job->states()->first()->seconds_remaining === 0) {
+        // If the latest state has a remaining seconds of 0, finish it.
+        if ($job && $job->states()->first()->seconds_remaining === 0) {
             $job->completed = 1;
             $job->save();
+
+            // Notify the user that owns the corresponding machine.
+            $job->machine->user->notify(
+                new JobFinished($job)
+            );
         }
     }
 }
