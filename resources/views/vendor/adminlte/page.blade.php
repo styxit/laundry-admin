@@ -57,24 +57,50 @@
                 <div class="navbar-custom-menu">
 
                     <ul class="nav navbar-nav">
-                        <li>
-                            @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
-                                <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
-                                    <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
-                                </a>
-                            @else
-                                <a href="#"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                >
-                                    <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
-                                </a>
-                                <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
-                                    @if(config('adminlte.logout_method'))
-                                        {{ method_field(config('adminlte.logout_method')) }}
-                                    @endif
-                                    {{ csrf_field() }}
-                                </form>
-                            @endif
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <!-- The user image in the navbar-->
+                                <img src="@include('components.gravatar_url', ['email' => Auth::user()->email ])" class="user-image" alt="User gravatar">
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- The user image in the menu -->
+                                <li class="user-header">
+                                    <img src="@include('components.gravatar_url', ['email' => Auth::user()->email ])" class="img-circle" alt="User gravatar">
+                                    <p>
+                                        {{ Auth::user()->name }}
+                                        <small>Member since {{ Auth::user()->created_at->format('F Y') }}</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="{{route('user.view')}}" class="btn btn-default btn-flat">Settings</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
+                                            <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" class="btn btn-default btn-flat">
+                                                <i class="fa fa-fw fa-power-off "></i> {{ trans('adminlte::adminlte.log_out') }}
+                                            </a>
+                                        @else
+                                            <a href="#"
+                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                               class="btn btn-default btn-flat"
+                                            >
+                                                <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
+                                                @if(config('adminlte.logout_method'))
+                                                    {{ method_field(config('adminlte.logout_method')) }}
+                                                @endif
+                                                {{ csrf_field() }}
+                                            </form>
+                                        @endif
+                                    </div>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
