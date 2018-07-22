@@ -26,9 +26,7 @@ class UserController extends Controller
      */
     public function save(Request $request)
     {
-        $user = User::find(Auth::id());
-
-        $user->pushover_app_key= $request->get('pushover_app_key');
+        $user = User::findOrFail(Auth::id());
         $user->pushover_user_key= $request->get('pushover_user_key');
 
         if ($user->save()) {

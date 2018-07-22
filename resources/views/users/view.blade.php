@@ -42,11 +42,6 @@
                         {{ Form::text('pushover_user_key', null, array('class' => 'form-control', 'placeholder' => 'Your user key')) }}
                         <span class="help-block">Your user key can be found when logged in at <a href="https://pushover.net/" target="_blank">pushover.net</a>.</span>
                     </div>
-                    <div class="form-group">
-                        {{ Form::label('pushover_app_key', 'App key') }}
-                        {{ Form::text('pushover_app_key', null, ['class' => 'form-control', 'placeholder' => 'Your app key']) }}
-                        <span class="help-block">The app token is available after you have created a <a href="https://pushover.net/apps" target="_blank">Pushover app</a>.</span>
-                    </div>
 
                     {{ Form::submit('Save', ['class' => 'btn btn-primary']) }}
 
