@@ -65,8 +65,12 @@
                 <div class="box-body">
                     <table class="table table-striped">
                         <tr>
-                            <th>Remaining Seconds</th>
-                            <th>Remaining time</th>
+                            <th>
+                                Seconds <span class="hidden-xs">remaining</span>
+                            </th>
+                            <th>
+                                Time <span class="hidden-xs">remaining</span>
+                            </th>
                             <th>Created</th>
                         </tr>
                         @foreach ($job->states as $state)
