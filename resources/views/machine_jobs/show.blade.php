@@ -13,6 +13,9 @@
                 <div class="box-header with-border">
                     <i class="fa fa-cube"></i>
                     <h3 class="box-title">{{ $job->machine->name }}</h3>
+                    <div class="box-tools">
+                        {{ link_to_route('machines.show', 'Details', [$job->machine->id], ['class' => 'btn btn-primary btn-sm']) }}
+                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
