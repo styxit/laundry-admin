@@ -63,16 +63,19 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>
-                                Seconds <span class="hidden-xs">remaining</span>
-                            </th>
-                            <th>
-                                Time <span class="hidden-xs">remaining</span>
-                            </th>
-                            <th>Created</th>
-                        </tr>
+                    <table class="table table-striped datatables">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Seconds <span class="hidden-xs">remaining</span>
+                                </th>
+                                <th>
+                                    Time <span class="hidden-xs">remaining</span>
+                                </th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         @foreach ($job->states as $state)
                             <tr>
                                 <td>{{ $state->seconds_remaining }}</td>
@@ -85,6 +88,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
                 </div>
                 <!-- /.box-body -->
@@ -92,4 +96,17 @@
             <!-- /.box -->
         </div>
     </div>
+@stop
+
+@section('js')
+    <script>
+      $(function () {
+        $('table.datatables').DataTable({
+          'pageLength': 15,
+          'lengthChange': false,
+          'searching': false,
+          'ordering': false,
+        })
+      })
+    </script>
 @stop
