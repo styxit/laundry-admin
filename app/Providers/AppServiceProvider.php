@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Horizon\Horizon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Authorization for Horizon.
+        Horizon::auth(function (Request $request) {
+            // Allow logged in users.
+            return !is_null($request->user());
+        });
+
         // Let the paginator render bootstrap 3 compatible links.
         Paginator::useBootstrapThree();
 
