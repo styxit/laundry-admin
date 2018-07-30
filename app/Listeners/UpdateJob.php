@@ -6,6 +6,7 @@ use App\Events\MachineJobNewState;
 use App\Events\MachineStateCreated;
 use App\MachineJob;
 use App\Notifications\JobFinished;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**
  * Class UpdateJob
@@ -14,7 +15,7 @@ use App\Notifications\JobFinished;
  *
  * @package App\Listeners
  */
-class UpdateJob
+class UpdateJob implements ShouldQueue
 {
     private $machineJob;
 

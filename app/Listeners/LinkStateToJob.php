@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Events\MachineJobNewState;
 use App\Events\MachineStateCreated;
 use App\MachineJob;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**
  * Class LinkStateToJob
@@ -13,7 +14,7 @@ use App\MachineJob;
  *
  * @package App\Listeners
  */
-class LinkStateToJob
+class LinkStateToJob implements ShouldQueue
 {
     /**
      * Handle the event.
