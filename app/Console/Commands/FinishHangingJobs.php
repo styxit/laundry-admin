@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\MachineJob;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 
@@ -23,23 +22,6 @@ class FinishHangingJobs extends Command
     protected $description = 'Finish hanging active jobs';
 
     /**
-     * @var \App\MachineJob The MachineJob model.
-     */
-    private $machineJob;
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct(MachineJob $machineJob)
-    {
-        $this->machineJob = $machineJob;
-
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -56,9 +38,8 @@ class FinishHangingJobs extends Command
             $timelimit->toDateTimeString()
         ));
 
-        $this->machineJob
-            ->isActive()
-            ->where('created_at', '<', $timelimit)
-            ->update(['completed' => 1]);
+        dispatch_now(
+            new \App\Jobs\FinishHangingJobs($this->option('hours'))
+        );
     }
 }
