@@ -35,11 +35,11 @@ class UsersSeeder extends Seeder
                 'password' => Hash::make(123456),
                 'created_at' => $this->faker->dateTimeThisYear($defaultUserUpdatedAt),
                 'updated_at' => $defaultUserUpdatedAt,
-            ]
+            ],
         ];
 
         // Add some random users.
-        for ($i = 0; $i < $this->faker->numberBetween(2, 6); ++$i) {
+        for ($i = 0; $i < $this->faker->numberBetween(2, 6); $i++) {
             $updatedAt = $this->faker->dateTimeThisYear();
             $users[] = [
                 'name' => $this->faker->firstName().' '.$this->faker->lastName(),

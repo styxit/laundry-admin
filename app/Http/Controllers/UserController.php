@@ -27,7 +27,7 @@ class UserController extends Controller
     public function save(Request $request)
     {
         $user = User::findOrFail(Auth::id());
-        $user->pushover_user_key= $request->get('pushover_user_key');
+        $user->pushover_user_key = $request->get('pushover_user_key');
 
         if ($user->save()) {
             flash('Settings saved.')->success();

@@ -57,7 +57,7 @@ class CreateUser extends Command
             'password' => Hash::make($password),
         ]);
 
-        if($user->save()) {
+        if ($user->save()) {
             $this->info(sprintf('User %s has been created.', $name));
         } else {
             $this->error(sprintf('User %s cloud not be created.', $name));

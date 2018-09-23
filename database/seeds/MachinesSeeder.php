@@ -2,8 +2,8 @@
 
 use App\User;
 use Faker\Factory;
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Database\Seeder;
 
 class MachinesSeeder extends Seeder
 {
@@ -34,7 +34,7 @@ class MachinesSeeder extends Seeder
         $machines = [];
 
         // Add some random machines.
-        for ($i = 0; $i < $this->faker->numberBetween(15, 30); ++$i) {
+        for ($i = 0; $i < $this->faker->numberBetween(15, 30); $i++) {
             $updatedAt = $this->faker->dateTimeThisYear();
             $machines[] = [
                 'name' => $this->faker->firstName().' '.$this->faker->lastName(),

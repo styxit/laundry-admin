@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Machine;
 use Closure;
+use App\Machine;
 
 class MachineTokenAuth
 {
