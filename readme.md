@@ -10,6 +10,10 @@ Monitor your laundry.
 - Duplicate the `.env.example` file to `.env` and adjust the config values.
 - Run `php artisan migrate` to create the initial tables.
 
+### Queue configuration
+You can run all jobs and listeners in sync or use [Horizon](https://laravel.com/docs/horizon) to process the jobs.
+In your `.env` file, set `QUEUE_DRIVER=sync` or `QUEUE_DRIVER=redis`.
+
 ## SQLite database
 - Create a new SQLite database `touch database/database.sqlite`.
 - Update your `.env`.
