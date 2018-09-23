@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Machine;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class MachineController extends Controller
 {

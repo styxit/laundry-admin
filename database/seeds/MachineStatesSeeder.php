@@ -1,7 +1,7 @@
 <?php
 
-use App\MachineJob;
 use Faker\Factory;
+use App\MachineJob;
 use Illuminate\Database\Seeder;
 
 class MachineStatesSeeder extends Seeder
@@ -33,7 +33,7 @@ class MachineStatesSeeder extends Seeder
             // Collect all states to insert.
             $states = [];
             // Add some random states for a job.
-            for ($i = 0; $i < $this->faker->numberBetween(20, 200); ++$i) {
+            for ($i = 0; $i < $this->faker->numberBetween(20, 200); $i++) {
                 $updatedAt = $this->faker->dateTimeThisYear();
                 $states[] = [
                     'machine_id' => $machineId,

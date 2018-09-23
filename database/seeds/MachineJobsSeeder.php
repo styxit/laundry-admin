@@ -34,7 +34,7 @@ class MachineJobsSeeder extends Seeder
             $jobs = [];
 
             // Add some jobs for a machine.
-            for ($i = 0; $i < $this->faker->numberBetween(10, 30); ++$i) {
+            for ($i = 0; $i < $this->faker->numberBetween(10, 30); $i++) {
                 $updatedAt = $this->faker->dateTimeThisYear();
                 $jobs[] = [
                     'machine_id' => $machineId,

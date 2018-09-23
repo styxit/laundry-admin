@@ -2,18 +2,15 @@
 
 namespace App\Listeners;
 
-use App\Events\MachineJobNewState;
-use App\Events\MachineStateCreated;
 use App\MachineJob;
+use App\Events\MachineJobNewState;
 use App\Notifications\JobFinished;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**
- * Class UpdateJob
+ * Class UpdateJob.
  *
  * Update a job after it has received a new state.
- *
- * @package App\Listeners
  */
 class UpdateJob implements ShouldQueue
 {
@@ -23,6 +20,7 @@ class UpdateJob implements ShouldQueue
     {
         $this->machineJob = $machineJob;
     }
+
     /**
      * Handle the event.
      *
@@ -32,10 +30,10 @@ class UpdateJob implements ShouldQueue
     public function handle(MachineJobNewState $event)
     {
         $job = $this->machineJob->with([
-            'states' => function($query) {
+            'states' => function ($query) {
                 $query->orderBy('created_at', 'desc');
                 $query->limit(1);
-            }
+            },
         ])->isActive()->find($event->machineJob->id);
 
         // If the latest state has a remaining seconds of 0, finish it.
