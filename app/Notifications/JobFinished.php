@@ -2,9 +2,9 @@
 
 namespace App\Notifications;
 
-use App\MachineJob;
 use App\User;
 use Carbon\Carbon;
+use App\MachineJob;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -40,10 +40,10 @@ class JobFinished extends Notification implements ShouldQueue
     public function via($notifiable)
     {
         if ($notifiable instanceof User) {
-            return !empty($notifiable->pushover_user_key) ? [PushoverChannel::class] : ['mail'];
+            return ! empty($notifiable->pushover_user_key) ? [PushoverChannel::class] : ['mail'];
         }
 
-        return [ ];
+        return [];
     }
 
     /**
@@ -102,7 +102,8 @@ class JobFinished extends Notification implements ShouldQueue
      *
      * @return string The human readable representation of $seconds.
      */
-    private function formatDuration(int $seconds) {
+    private function formatDuration(int $seconds)
+    {
         // Show hour and minute, unless $seconds is less than one minute.
         $format = ($seconds < 60) ? '0\m s\s' : 'G\h i\m';
 

@@ -2,17 +2,15 @@
 
 namespace App\Listeners;
 
+use App\MachineJob;
 use App\Events\MachineJobNewState;
 use App\Events\MachineStateCreated;
-use App\MachineJob;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**
- * Class LinkStateToJob
+ * Class LinkStateToJob.
  *
  * Link a MachineState to an existing MachineJob, or create a new MachineJob.
- *
- * @package App\Listeners
  */
 class LinkStateToJob implements ShouldQueue
 {
@@ -28,7 +26,7 @@ class LinkStateToJob implements ShouldQueue
         $job = $event->state->machine()->first()->jobs()->orderBy('created_at', 'desc')->isActive()->first();
 
         // If there is no active job, create a new one.
-        if (!$job) {
+        if (! $job) {
             $job = new MachineJob();
             // Set the $state->seconds_remaining as the job duration.
             $job->duration = $event->state->seconds_remaining;
