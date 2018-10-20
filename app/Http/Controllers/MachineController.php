@@ -78,11 +78,11 @@ class MachineController extends Controller
     {
         $machine->load([
             'jobs' => function ($query) {
-                $query->limit(15);
+                $query->limit(10);
             },
             'states'=> function ($query) {
                 $query->with('job');
-                $query->limit(20);
+                $query->limit(10);
             },
         ]);
 
