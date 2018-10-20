@@ -35,8 +35,18 @@
                 </div>
 
                 <div class="box-body">
+                    <blockquote>If no notification services are configured, email is used to send notifications.</blockquote>
                     {{ Form::model(Auth::user(), ['route' => 'user.save', 'method' => 'POST']) }}
-                    <h3 class="box-title">Pushover</h3>
+                    <h3>
+                        Pushover
+                        <small>
+                            @if (isset(Auth::user()->pushover_user_key))
+                                <span class="label label-success">Configured</span>
+                            @else
+                                <span class="label label-default">Not configured</span>
+                            @endif
+                        </small>
+                    </h3>
                     <div class="form-group">
                         {{ Form::label('pushover_user_key', 'User key') }}
                         {{ Form::text('pushover_user_key', null, array('class' => 'form-control', 'placeholder' => 'Your user key')) }}
