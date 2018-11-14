@@ -17,6 +17,9 @@
                     <p class="text-muted text-center">{{ Auth::user()->email }}</p>
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
+                            <b>Timezone</b> <span class="pull-right">{{ Auth::user()->timezone }}</span>
+                        </li>
+                        <li class="list-group-item">
                             <b>Member since</b> <a class="pull-right">{{ Auth::user()->created_at->format('F Y') }}</a>
                         </li>
                         <li class="list-group-item">
@@ -29,6 +32,26 @@
             <!-- /.box -->
         </div>
         <div class="col-md-8">
+            <div class="box ">
+                <div class="box-header with-border">
+                    <h3 class="box-title">User</h3>
+                </div>
+
+                <div class="box-body">
+                    {{ Form::model(Auth::user(), ['route' => 'user.save', 'method' => 'POST']) }}
+
+                    <div class="form-group">
+                        {{ Form::label('timezone', 'Time zone') }}
+                        {{ Form::select('timezone', $timezones, null, ['id' => 'timezone', 'class' => 'form-control']) }}
+                        <span class="help-block">Used to display dates and times in your timezone.</span>
+                    </div>
+
+                    {{ Form::submit('Save', ['class' => 'btn btn-primary']) }}
+
+                    {{ Form::close() }}
+                </div>
+            </div>
+
             <div class="box box-warning">
                 <div class="box-header with-border">
                     <h3 class="box-title">Notification services</h3>

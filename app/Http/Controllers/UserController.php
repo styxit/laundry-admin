@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +16,12 @@ class UserController extends Controller
      */
     public function view()
     {
-        return view('users.view');
+        // Get a list of supported timezones.
+        $timezones = collect(DateTimeZone::listIdentifiers(DateTimeZone::ALL))->keyBy(function($value) {
+            return $value;
+        });
+
+        return view('users.view')->with(compact('timezones'));
     }
 
     /**
@@ -27,7 +33,12 @@ class UserController extends Controller
     public function save(Request $request)
     {
         $user = User::findOrFail(Auth::id());
-        $user->pushover_user_key = $request->get('pushover_user_key');
+        if ($request->has('pushover_user_key')) {
+            $user->pushover_user_key = $request->get('pushover_user_key');
+        }
+        if ($request->has('timezone')) {
+            $user->timezone = $request->get('timezone');
+        }
 
         if ($user->save()) {
             flash('Settings saved.')->success();
