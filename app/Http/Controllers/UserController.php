@@ -17,7 +17,7 @@ class UserController extends Controller
     public function view()
     {
         // Get a list of supported timezones.
-        $timezones = collect(DateTimeZone::listIdentifiers(DateTimeZone::ALL))->keyBy(function($value) {
+        $timezones = collect(DateTimeZone::listIdentifiers(DateTimeZone::ALL))->keyBy(function ($value) {
             return $value;
         });
 
