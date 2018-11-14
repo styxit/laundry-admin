@@ -67,7 +67,7 @@
                             </tr>
                             @foreach ($machine->jobs as $job)
                                 <tr>
-                                    <td>{{ link_to_route('machine_job.show', $job->created_at->format('d-m-Y G:i:s'), [$job->id]) }}</td>
+                                    <td>{{ link_to_route('machine_job.show', $job->created_at->timezone(Auth::user()->timezone)->format('d-m-Y G:i:s'), [$job->id]) }}</td>
                                     <td>@duration($job->duration)</td>
                                     <td>@duration($job->states->first()->seconds_remaining)</td>
                                     <td>
@@ -109,9 +109,13 @@
                                     <td>{{ $state->seconds_remaining }}</td>
                                     <td>@duration($state->seconds_remaining)</td>
                                     <td>
-                                        {{ $state->created_at->format('H:i:s') }}
+                                        @php
+                                            // Determine state's creation time in user's timezone.
+                                            $stateStartTime = $state->created_at->timezone(Auth::user()->timezone);
+                                        @endphp
+                                        {{ $stateStartTime->format('H:i:s') }}
                                         <small>
-                                            {{ $state->created_at->format('d-m-Y') }}
+                                            {{ $stateStartTime->format('d-m-Y') }}
                                         </small>
                                     </td>
                                     <td>

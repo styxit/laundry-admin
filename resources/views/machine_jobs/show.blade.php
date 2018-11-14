@@ -3,7 +3,11 @@
 @section('title', 'Job details')
 
 @section('content_header')
-    <h1>Job #{{ $job->id }} <small>Created {{ $job->created_at->format('G:i d-m-Y') }}</small></h1>
+    @php
+        // Determine job start time in user's timezone.
+        $jobStartTime = $job->created_at->timezone(Auth::user()->timezone);
+    @endphp
+    <h1>Job #{{ $job->id }} <small>Created {{ $jobStartTime->format('G:i d-m-Y') }}</small></h1>
 @stop
 
 @section('content')
@@ -81,9 +85,13 @@
                                 <td>{{ $state->seconds_remaining }}</td>
                                 <td>@duration($state->seconds_remaining)</td>
                                 <td>
-                                    {{ $state->created_at->format('H:i:s') }}
+                                    @php
+                                        // Determine state's creation time in user's timezone.
+                                        $stateStartTime = $state->created_at->timezone(Auth::user()->timezone);
+                                    @endphp
+                                    {{ $stateStartTime->format('H:i:s') }}
                                     <small>
-                                        {{ $state->created_at->format('d-m-Y') }}
+                                        {{ $stateStartTime->format('d-m-Y') }}
                                     </small>
                                 </td>
                             </tr>
