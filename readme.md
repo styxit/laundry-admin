@@ -1,4 +1,4 @@
-#Laundry admin - Monitor your laundry
+# Laundry admin - Monitor your laundry
 [![StyleCI](https://github.styleci.io/repos/89791336/shield?branch=master)](https://github.styleci.io/repos/89791336)
 
 ![Laundry Admin header](https://raw.githubusercontent.com/styxit/laundry-admin/master/header.png)
