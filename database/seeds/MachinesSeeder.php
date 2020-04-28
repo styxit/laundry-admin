@@ -2,8 +2,8 @@
 
 use App\User;
 use Faker\Factory;
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class MachinesSeeder extends Seeder
 {
