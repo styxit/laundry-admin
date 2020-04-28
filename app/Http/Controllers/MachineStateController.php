@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MachineStateCreated;
 use App\MachineJob;
 use App\MachineState;
 use Illuminate\Http\Request;
-use App\Events\MachineStateCreated;
 
 class MachineStateController extends Controller
 {

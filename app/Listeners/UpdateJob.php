@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\MachineJob;
 use App\Events\MachineJobNewState;
+use App\MachineJob;
 use App\Notifications\JobFinished;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

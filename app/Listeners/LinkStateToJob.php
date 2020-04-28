@@ -2,9 +2,9 @@
 
 namespace App\Listeners;
 
-use App\MachineJob;
 use App\Events\MachineJobNewState;
 use App\Events\MachineStateCreated;
+use App\MachineJob;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**

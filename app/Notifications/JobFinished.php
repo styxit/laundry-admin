@@ -2,13 +2,13 @@
 
 namespace App\Notifications;
 
+use App\MachineJob;
 use App\User;
 use Carbon\Carbon;
-use App\MachineJob;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 use NotificationChannels\Pushover\PushoverChannel;
 use NotificationChannels\Pushover\PushoverMessage;
 

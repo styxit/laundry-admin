@@ -3,8 +3,8 @@
 namespace App\Events;
 
 use App\MachineState;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
 class MachineStateCreated
 {

@@ -1,7 +1,7 @@
 <?php
 
-use Faker\Factory;
 use App\MachineJob;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class MachineStatesSeeder extends Seeder
