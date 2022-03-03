@@ -31,8 +31,7 @@ class User extends Authenticatable
     /**
      * Route notifications for the mail channel.
      *
-     * @param Notification $notification The Notification.
-     *
+     * @param  Notification  $notification  The Notification.
      * @return string
      */
     public function routeNotificationForMail($notification)

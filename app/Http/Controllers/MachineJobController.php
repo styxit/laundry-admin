@@ -14,8 +14,7 @@ class MachineJobController extends Controller
     /**
      * Show a machine job.
      *
-     * @param  int $id The machine job id.
-     *
+     * @param  int  $id  The machine job id.
      * @return Response
      */
     public function show($id)

@@ -18,7 +18,7 @@ class MachineJobNewState
     /**
      * Event when a MachineState was added to a job.
      *
-     * @param MachineJob $machineJob The machine job that got a new state.
+     * @param  MachineJob  $machineJob  The machine job that got a new state.
      */
     public function __construct(MachineJob $machineJob)
     {

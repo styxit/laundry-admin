@@ -13,8 +13,8 @@ class MachinePolicy
     /**
      * Determine whether the user can view the machine.
      *
-     * @param  \App\User    $user
-     * @param  \App\Machine $machine
+     * @param  \App\User  $user
+     * @param  \App\Machine  $machine
      * @return bool
      */
     public function view(User $user, Machine $machine)

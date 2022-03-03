@@ -34,7 +34,7 @@ class JobFinished extends Notification implements ShouldQueue
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed $notifiable
+     * @param  mixed  $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -50,7 +50,6 @@ class JobFinished extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     *
      * @return MailMessage
      */
     public function toMail($notifiable)
@@ -69,7 +68,6 @@ class JobFinished extends Notification implements ShouldQueue
      * Get the Pushover representation of the notification.
      *
      * @param $notifiable
-     *
      * @return PushoverMessage
      */
     public function toPushover($notifiable)
@@ -98,8 +96,7 @@ class JobFinished extends Notification implements ShouldQueue
     /**
      * Format a duration in seconds to a human readable string.
      *
-     * @param int $seconds The number of seconds to format.
-     *
+     * @param  int  $seconds  The number of seconds to format.
      * @return string The human readable representation of $seconds.
      */
     private function formatDuration(int $seconds)

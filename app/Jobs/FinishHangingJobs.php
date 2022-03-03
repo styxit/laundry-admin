@@ -22,7 +22,7 @@ class FinishHangingJobs implements ShouldQueue
     /**
      * FinishHangingJobs constructor.
      *
-     * @param int $hours he number of hours after which running jobs will be completed.
+     * @param  int  $hours  he number of hours after which running jobs will be completed.
      */
     public function __construct(int $hours = 12)
     {

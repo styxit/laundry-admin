@@ -30,7 +30,7 @@ class CreateUser extends Command
     /**
      * Create a new command instance.
      *
-     * @param User $user The User model.
+     * @param  User  $user  The User model.
      */
     public function __construct(User $user)
     {

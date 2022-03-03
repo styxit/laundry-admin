@@ -45,8 +45,7 @@ class MachineJob extends Model
     /**
      * Scope a query to only include jobs that are not yet completed.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeIsActive($query)

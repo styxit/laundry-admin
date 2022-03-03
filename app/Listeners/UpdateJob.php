@@ -24,7 +24,7 @@ class UpdateJob implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  MachineJobNewState $event
+     * @param  MachineJobNewState  $event
      * @return void
      */
     public function handle(MachineJobNewState $event)
