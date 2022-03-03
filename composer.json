@@ -1,21 +1,25 @@
 {
     "name": "styxit/laundry-admin",
     "description": "Laundry monitoring.",
-    "keywords": ["laundry", "monitoring"],
+    "keywords": [
+        "laundry",
+        "monitoring"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.1.0",
+        "php": ">=7.4.0",
         "fideloper/proxy": "^4.0",
-        "jeroennoten/laravel-adminlte": "^1.24",
+        "jeroennoten/laravel-adminlte": "^2.0",
         "laracasts/flash": "^3.0",
-        "laravel-notification-channels/pushover": "^1.2",
-        "laravel/framework": "5.7.*",
-        "laravel/horizon": "^1.4",
+        "laravel-notification-channels/pushover": "^2.1",
+        "laravel/framework": "^6.20.0",
+        "laravel/horizon": "^3.0",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.7"
+        "laravelcollective/html": "^6.0"
     },
     "require-dev": {
+        "composer/composer": "^2.2",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
