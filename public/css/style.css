@@ -1,7 +1,9 @@
 /* MAIN LAYOUT */
-body {
+body,
+body.login-page, body.register-page /* Overrule AdminLTE styleing. */
+{
     height:auto;
-    background: url(/img/splash.jpg) no-repeat center center fixed !important;
+    background: url(/img/splash.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
