@@ -31,7 +31,7 @@ The following credentials can be used to login:
 - Password: `123456` 
 
 ## Pushing machine states
-This applications needs data from your (washing) machines. The remaining time in seconds must me pushed so the application knows a job is running and can send notifications upon completion.
+This applications needs data from your (washing) machines. The remaining time in seconds must be pushed so the application knows a job is running and can send notifications upon completion.
 
 ### Send new data
 A http POST request must be made to `/api/machines/{ID}/machine_states` where `{ID}` is the machine identifier that can be found in the application after registering a machine. To authenticate the request, a `MachineToken` must be send with it in the request header. This token can also be found in the application.
